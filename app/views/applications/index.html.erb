@@ -1,0 +1,11 @@
+<h1>Your Job Applications: </h1>
+
+<% @applications.each do |application| %>
+
+
+    <%= application.job_title %>
+    <%= application.job_location %>
+    <%= application.job_salary %>
+    <%= application.description %>
+
+<% end %>
