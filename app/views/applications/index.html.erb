@@ -2,10 +2,11 @@
 
 <% @applications.each do |application| %>
 
-
+    <%= application.company %>
     <%= application.job_title %>
     <%= application.job_location %>
     <%= application.job_salary %>
+    <%= application.job_url %>
     <%= application.description %>
 
 <% end %>

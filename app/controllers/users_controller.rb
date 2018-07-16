@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     private 
 
     def set_user
-        @user = user.find(params [:id])
+        @user = user.find(params[:id])
     end 
 
 

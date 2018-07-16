@@ -1,0 +1,25 @@
+<h1>Create A New Job Application</h1>
+
+<%= form_for @application do |f| %>
+    <%= f.label :company, "Company" %><br>
+    <%= f.text_field :company %>
+
+    <%= f.label :job_title, "Title" %><br>
+    <%= f.text_field :job_title %>
+
+    <%= f.label :job_location, "Location" %><br>
+    <%= f.text_field :job_location %>
+
+    <%= f.label :job_salary, "Salary" %><br>
+    <%= f.text_field :job_salary %>
+
+    <%= f.label :job_url, "Job Posting URL" %><br>
+    <%= f.text_field :job_url %>
+
+    <%= f.label :description, "Description" %><br>
+    <%= f.text_field :description %>
+
+    <%= f.submit %><br>
+    <% end %>
+
+
