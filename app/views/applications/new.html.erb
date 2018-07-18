@@ -3,6 +3,9 @@
 <%= form_for @application do |f| %>
     <%= f.label :company, "Company" %><br>
     <%= f.text_field :company %>
+    <% if @application.errors[:company] != [] %>
+        <%= @application.errors[:company][0] %>
+    <% end %>
 
     <%= f.label :job_title, "Title" %><br>
     <%= f.text_field :job_title %>

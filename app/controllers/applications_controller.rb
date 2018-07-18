@@ -7,7 +7,7 @@ class ApplicationsController < ApplicationController
     def create 
         @application = Application.new(application_params)
 
-        if application.save
+        if @application.save
             redirect_to applications_path
         else 
             render :new 
