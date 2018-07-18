@@ -1,0 +1,5 @@
+<% if !logged_in? %>
+<h1>Please <%= link_to 'login', login_path %> or signup to start using JobTrackr</h1>
+<% else %>
+<h1>Welcome to JobTrackr, <%= current_user.name %></h1>
+<% end %>
