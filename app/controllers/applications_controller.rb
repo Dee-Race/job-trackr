@@ -4,10 +4,12 @@ class ApplicationsController < ApplicationController
         @application = Application.new
     end 
 
-    def create 
+    def create  
         @application = Application.new(application_params)
 
         if @application.save
+            current_user.applications << @application 
+    
             redirect_to applications_path
         else 
             render :new 
