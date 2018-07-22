@@ -1,0 +1,12 @@
+<h1><%= @application.name %>
+
+<h3>Company</h3><li><%= application.company %></li>
+<h3>Title</h3><li><%= application.job_title %></li><br>
+<h3>Location</h3><li><%= application.job_location %></li><br>
+<h3>Salary (if applicable)</h3><li><%= application.job_salary %></li><br>
+<h3>Job Posting URL</h3><li><%= application.job_url %></li><br>
+<h3>Description</h3><li><%= application.description %></li><br>
+<h3>Date Applied</h3><li><%= application.date_applied %></li><br>
+
+
+<%= link_to 'Add new job application', new_application_path %></h3>
