@@ -12,16 +12,26 @@
   <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">JobTrackr</a>
+  <a class="navbar-brand" href="/">JobTrackr</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">About</a>
-      <a class="nav-item nav-link" href="#">TBD</a>
-    </div>
+    <ul class="nav navbar-nav">
+      <li><%= link_to "Sign Up", signup_path %></li>
+      <% if current_user.present? %>
+        <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to "Log In", login_path %></li>
+        <% end %>
+        
+        <% if logged_in? %>
+          <li><%= link_to "New Job Application", new_application_path(@application) %></li>
+          <% end %>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "About", about_path %></li>
+
+    </ul>
   </div>
 </nav>
 

@@ -9,6 +9,8 @@ gem 'dotenv-rails'
 gem 'bootstrap', '~> 4.1.2'
 
 gem 'jquery-rails'
+
+gem 'thin'
  
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

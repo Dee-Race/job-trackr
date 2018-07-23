@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     def create 
         if request.env['omniauth.auth']
-            @user = User.find_by(email: request.env["info"]["email"])
+            @user = User.find_or_create_by(email: request.env['omniauth.auth']["info"]["email"])
 
             if @user 
                 session[:user_id] = @user.id 
@@ -19,13 +19,15 @@ class SessionsController < ApplicationController
                 session[:user_id] = @user.id 
                 redirect_to user_path(@user)
             else 
+                flash[:message] = 'Invalid email/password combination'
                 render :new 
             end
         end
     end 
 
     def logout 
-
+        session[:user_id] = nil
+        redirect_to root_url
     end 
 
 end 
