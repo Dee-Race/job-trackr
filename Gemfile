@@ -6,8 +6,9 @@ ruby '2.3.3'
 gem 'omniauth-facebook'
 gem 'omniauth'
 gem 'dotenv-rails'
-gem 'bootstrap-sass'
-gem 'autoprefixer-rails'
+gem 'bootstrap', '~> 4.1.2'
+
+gem 'jquery-rails'
  
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

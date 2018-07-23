@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :questions
   resources :applications 
+
+  get "about" => "application#about", as: :about
  
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
