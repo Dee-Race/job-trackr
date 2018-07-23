@@ -10,3 +10,6 @@
 
 
 <%= link_to 'Add new job application', new_application_path %></h3>
+
+<%= link_to "Edit", edit_application_path(@application) %>
+<%= link_to "Delete", application_path(@application), method: 'delete' %>

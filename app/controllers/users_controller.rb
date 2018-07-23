@@ -15,24 +15,16 @@ class UsersController < ApplicationController
         end 
     end 
 
-    def edit 
-
-    end 
-
-    def update 
-
-    end 
-
-    def destroy 
-
-    end 
-
-    def index 
-        
-    end 
 
     def show 
-
+        if logged_in?
+            @user = User.find_by(id: params[:id])
+            @application = Application.new 
+            @question = Question.new 
+            render :show 
+        else 
+            redirect_to root_path 
+        end 
     end 
 
     private 

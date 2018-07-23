@@ -37,7 +37,7 @@ class ApplicationsController < ApplicationController
     end 
 
     def show 
-        @question = Question.new 
+        @application = Application.find(id: params[:id]) 
     end 
 
     private 

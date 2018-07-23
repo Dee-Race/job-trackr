@@ -1,0 +1,12 @@
+<h1>Edit this question</h1>
+
+<%= @application.company %>
+<%= @application.job_title %>
+
+<%= form_for @question |f| %>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+    <%= f.submit "Edit" %>
+    <% end %>
+
+    
