@@ -3,7 +3,7 @@
 
 <% @applications.each do |application| %>
 
-   <h3>Company</h3><li><%= application.company %></li>
+   <h3>Company</h3><li><%= application.company %></li><br>
    <h3>Title</h3><li><%= application.job_title %></li><br>
    <h3>Location</h3><li><%= application.job_location %></li><br>
    <h3>Salary (if applicable)</h3><li><%= application.job_salary %></li><br>
@@ -13,5 +13,7 @@
 
 <% end %>
 
- <%= link_to 'Add new job application', new_application_path %></h3>
- <%= link_to 'Back to Profile', user_path(@user) %>
+ <p><%= link_to 'Add new job application', new_application_path %></p>
+
+
+

@@ -19,8 +19,8 @@ class UsersController < ApplicationController
     def show 
         if logged_in?
             @user = User.find_by(id: params[:id])
-            @application = Application.new 
-            @question = Question.new 
+            @application = Application.new  
+            @question = Question.new
             render :show 
         else 
             redirect_to root_path 

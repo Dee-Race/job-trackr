@@ -6,9 +6,9 @@ class ApplicationsController < ApplicationController
 
     def create  
         @application = Application.new(application_params)
-
+        @application.user_id = current_user.id 
         if @application.save
-            current_user.applications << @application 
+            #current_user.applications << @application 
     
             redirect_to applications_path
         else 
@@ -33,7 +33,7 @@ class ApplicationsController < ApplicationController
     end 
 
     def index 
-        @applications = Application.all
+        @applications = current_user.applications 
     end 
 
     def show 
@@ -43,7 +43,7 @@ class ApplicationsController < ApplicationController
     private 
 
     def application_params
-        params.require(:application).permit(:company, :job_title, :job_location, :job_salary, :job_url, :description, :date_applied)
+        params.require(:application).permit(:company, :job_title_id, :job_location, :job_salary, :job_url, :description, :date_applied, :application_id)
     end 
 
 

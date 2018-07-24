@@ -1,27 +1,27 @@
 <%= form_for @application do |f| %>
-    <%= f.label :company, "Company" %><br>
-    <%= f.text_field :company %>
+    <%= f.label :company, "Company" %>
+    <%= f.text_field :company %><br>
     <% if @application.errors[:company] != [] %>
         <%= @application.errors[:company][0] %>
     <% end %>
 
-    <%= f.label :job_title, "Title" %><br>
-    <%= f.text_field :job_title %>
+    <%= f.label :job_title, "Title" %> # add collection select, drop down menu - job_title_id 
+    <%= f.text_field :job_title %><br> # or can add a new job title if it hasn't been added yet - fields_for 
 
-    <%= f.label :job_location, "Location" %><br>
-    <%= f.text_field :job_location %>
+    <%= f.label :job_location, "Location" %>
+    <%= f.text_field :job_location %><br>
 
-    <%= f.label :job_salary, "Salary" %><br>
-    <%= f.text_field :job_salary %>
+    <%= f.label :job_salary, "Salary" %>
+    <%= f.text_field :job_salary %><br>
 
-    <%= f.label :job_url, "Job Posting URL" %><br>
-    <%= f.text_field :job_url %>
+    <%= f.label :job_url, "Job Posting URL" %>
+    <%= f.text_field :job_url %><br>
 
-    <%= f.label :description, "Description" %><br>
-    <%= f.text_field :description %>
+    <%= f.label :description, "Description" %>
+    <%= f.text_field :description%><br>
 
-    <%= f.label :date_applied, "Date Applied" %><br>
-    <%= f.text_field :date_applied %>
+    <%= f.label :date_applied, "Date Applied" %>
+    <%= f.text_field :date_applied %><br>
 
     <%= f.submit %><br>
     <% end %>

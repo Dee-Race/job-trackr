@@ -5,8 +5,11 @@ class SessionsController < ApplicationController
     end 
 
     def create 
-        if request.env['omniauth.auth']
-            @user = User.find_or_create_by(email: request.env['omniauth.auth']["info"]["email"])
+        if auth
+            @user = User.find_or_create_by(email: auth["info"]["email"]) do |u|
+                u.name = auth["info"]["name"]
+                u.password = auth["uid"]
+            end
 
             if @user 
                 session[:user_id] = @user.id 
@@ -19,15 +22,22 @@ class SessionsController < ApplicationController
                 session[:user_id] = @user.id 
                 redirect_to user_path(@user)
             else 
-                flash[:message] = 'Invalid email/password combination'
+                flash.now[:danger] = 'Invalid email/password combination'
                 render :new 
             end
         end
     end 
 
-    def logout 
-        session[:user_id] = nil
+    def destroy 
+        session.clear
+        @current_user = nil 
         redirect_to root_url
-    end 
+    end
+    
+    private 
+
+    def auth 
+        request.env['omniauth.auth']
+    end
 
 end 

@@ -1,16 +1,19 @@
 <h1>Your Current Job Applications</h1>
 
 
+
 <% @user.applications.each do |application| %>
 
 
-    <%= application.company %>
-    <%= application.job_title %>
-    <%= application.job_location %>
-    <%= application.job_salary %>
-    <%= application.job_url %>
-    <%= application.description %>
-    <%= application.date_applied %>
+    <p><%= application.company %></p>
+    <p><%= application.job_title %></p>
+    <p><%= application.job_location %></p>
+    <p><%= application.job_salary %></p>
+    <p><%= application.job_url %></p>
+    <p><%= application.description %></p>
+    <p><%= application.date_applied %></p>
     <% end %>
 
-   <%= link_to 'Add new job application', new_application_path %></h3>
+  
+
+   <p><%= link_to 'Add new job application', new_application_path %></h3></p>

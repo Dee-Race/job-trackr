@@ -1,5 +1,6 @@
 class Application < ActiveRecord::Base
-    has_many :users, through: :questions
-    has_many :questions
+    belongs_to :user 
+    belongs_to :job_title
+    
     validates :company, :job_title, :job_location, :description, presence: true 
 end
