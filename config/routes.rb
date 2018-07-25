@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root "application#home"
   resources :users
-  resources :questions
+  resources :job_titles
   resources :applications 
 
   get "about" => "application#about", as: :about
