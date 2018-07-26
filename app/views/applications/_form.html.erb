@@ -1,12 +1,11 @@
 <%= form_for @application do |f| %>
     <%= f.label :company, "Company" %>
     <%= f.text_field :company %><br>
-    <% if @application.errors[:company] != [] %>
-        <%= @application.errors[:company][0] %>
-    <% end %>
 
-    <%= f.label :job_title, "Title" %> # add collection select, drop down menu - job_title_id 
-    <%= f.text_field :job_title %><br> # or can add a new job title if it hasn't been added yet - fields_for 
+    <%= f.fields_for :job_title do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title %><br> 
+        <% end %>
 
     <%= f.label :job_location, "Location" %>
     <%= f.text_field :job_location %><br>
