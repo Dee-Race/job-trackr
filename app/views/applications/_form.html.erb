@@ -2,6 +2,8 @@
     <%= f.label :company, "Company" %>
     <%= f.text_field :company %><br>
 
+    <%= f.collection_select :job_title, JobTitle.all, :id, :title %>
+
     <%= f.fields_for :job_title do |f| %>
         <%= f.label :title %>
         <%= f.text_field :title %><br> 
