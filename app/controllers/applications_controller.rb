@@ -2,6 +2,7 @@ class ApplicationsController < ApplicationController
 
     def new 
         @application = Application.new
+        @application.build_job_title
     end 
 
     def create  
@@ -43,7 +44,7 @@ class ApplicationsController < ApplicationController
     private 
 
     def application_params
-        params.require(:application).permit(:company, :job_title_id, :job_location, :job_salary, :job_url, :description, :date_applied, :application_id)
+        params.require(:application).permit(:company, :job_location, :job_salary, :job_url, :description, :date_applied, :application_id, job_title_attributes:[:title])
     end 
 
 

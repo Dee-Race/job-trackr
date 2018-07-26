@@ -17,12 +17,12 @@ class SessionsController < ApplicationController
             end 
         else 
             @user = User.find_by(email: params[:user][:email])
-
+        
             if @user && @user.authenticate(params[:user][:password])
                 session[:user_id] = @user.id 
                 redirect_to user_path(@user)
             else 
-                redirect_to signin_path, :notice => "There is already an account for this email. Please login to create new Job Application."
+                redirect_to login_path, :notice => "There is already an account for this email. Please login to create new Job Application."
             end
         end
     end 
