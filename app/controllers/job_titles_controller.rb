@@ -5,6 +5,7 @@ class JobTitlesController < ApplicationController
     end 
 
     def show 
+        @job_title = job_title.most_popular
         @job_title = JobTitle.find(id: params[:id])
     end 
 
@@ -13,7 +14,9 @@ class JobTitlesController < ApplicationController
     end 
 
     def index 
-        @job_titles = JobTitle.all
+        if logged_in?
+         @job_titles = current_user.job_titles 
+        end
     end 
 
 
