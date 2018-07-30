@@ -22,7 +22,8 @@ class SessionsController < ApplicationController
                 session[:user_id] = @user.id 
                 redirect_to user_path(@user)
             else 
-                redirect_to login_path, :notice => "There is already an account for this email. Please login to create new Job Application."
+                flash.now[:error] = 'Invalid email/password combination'
+                render 'new'
             end
         end
     end 
