@@ -30,7 +30,7 @@ class ApplicationsController < ApplicationController
 
     def destroy 
         Application.find(params[:id]).destroy
-        redirect_to application_url
+        redirect_to applications_url
     end 
 
     def index 
@@ -38,7 +38,7 @@ class ApplicationsController < ApplicationController
     end 
 
     def show 
-        @application = Application.find(id: params[:id]) 
+        @application = Application.find(params[:id]) 
     end 
 
     private 

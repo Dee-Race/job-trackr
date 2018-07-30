@@ -1,12 +1,14 @@
 <h1>Your Current Job Applications</h1>
 
+<%= link_to 'See all job titles', user_job_titles_path(@user) %>
+
 
 
 <% @user.applications.each do |application| %>
 
 
     <p><%= application.company %></p>
-    <p><%= application.job_title %></p>
+    <p><%= application.job_title.title %></p>
     <p><%= application.job_location %></p>
     <p><%= application.job_salary %></p>
     <p><%= application.job_url %></p>

@@ -1,4 +1,4 @@
-class JobTitlesController < Application Controller 
+class JobTitlesController < ApplicationController 
 
     def new 
         @job_title = JobTitle.new(job_title_params)
@@ -10,6 +10,10 @@ class JobTitlesController < Application Controller
 
     def edit 
         @job_title = JobTitle.find(id: params[:id])
+    end 
+
+    def index 
+        @job_titles = JobTitle.all
     end 
 
 
