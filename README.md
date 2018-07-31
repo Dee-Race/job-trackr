@@ -1,24 +1,27 @@
-# README
+# JobTrackr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+JobTrackr is a Rails web application that utilizes a database, ActiveRecord associations, user accounts, models that include has_many, belongs_to, and has_many :through relationships. A user can create, edit, and delete a job application. This web application is intended to organize the necessary information for someone applying to multiple jobs. 
 
-Things you may want to cover:
+# Usage 
 
-* Ruby version
+- To use this application: 
+    - clone the repository
+    - 'cd' into repository 
+    - run 'bundle install'
+    - run 'rake db:migrate' 
+    - run 'rails s' 
 
-* System dependencies
+# Contributing 
 
-* Configuration
 
-* Database creation
+Bug reports and pull requests are welcome on GitHub at https://github.com/Dee-Race/job-trackr. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* Database initialization
+# License 
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
-* Deployment instructions
+# Author 
 
-* ...
+Dee Race, 2018 
+

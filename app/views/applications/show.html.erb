@@ -9,9 +9,11 @@
 <h3>Date Applied</h3><li><%= @application.date_applied %></li><br>
 
 
-<p><%= link_to "Add new job application", new_application_path %></p>
-
 <p><%= link_to "Edit", edit_application_path(@application) %></p>
 <p><%= link_to "Delete", application_path(@application), method: 'delete' %></p>
+
+<p><%= link_to "Add new job application", new_application_path %></p>
+
+<h3><%=link_to "View my applications", applications_path %></h3>
 
 

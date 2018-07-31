@@ -1,12 +1,15 @@
+<h3>Here are your most popular job titles:</h3>
+
 <ul>
 <% @job_titles.most_popular.each do |job_title, count| %>
     <li><%= job_title %> - <%= count %></li>
     <% end %>
+</ul>
 
-    </ul>
+<h3>Click below to see more information about an application:</h3>
 
 <% @job_titles.each do |job_title| %>
-    <%= job_title.title %>
+    <p><%= job_title.title %></p>
    <ul>
     <% job_title.applications.each do |application| %>
 <li>
