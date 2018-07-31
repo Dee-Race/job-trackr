@@ -1,4 +1,9 @@
-<%= @job_title.most_popular %>
+<ul>
+<% @job_titles.most_popular.each do |job_title, count| %>
+    <li><%= job_title %> - <%= count %></li>
+    <% end %>
+
+    </ul>
 
 <% @job_titles.each do |job_title| %>
     <%= job_title.title %>

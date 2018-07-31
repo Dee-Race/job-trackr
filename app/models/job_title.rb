@@ -5,7 +5,7 @@ class JobTitle < ApplicationRecord
  
 
     def self.most_popular 
-        order('count DESC').limit(3) 
+        JobTitle.group(:title).order('count_id DESC').limit(3).count(:id)
     end 
 
 
