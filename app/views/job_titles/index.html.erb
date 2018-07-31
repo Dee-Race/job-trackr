@@ -10,7 +10,9 @@
 
 <% @job_titles.each do |job_title| %>
     <p><%= job_title.title %></p>
+        <%= %>
    <ul>
+
     <% job_title.applications.each do |application| %>
 <li>
     <%= link_to application.company, application_path(application)%>
@@ -18,3 +20,9 @@
     <% end %>
     </ul>
     <% end %>
+
+
+     <% @job_titles.sort_title.each do |job_title| %>
+   <%= job_title.title %><br>
+   <% job_title.application.company %>
+   <% end %>

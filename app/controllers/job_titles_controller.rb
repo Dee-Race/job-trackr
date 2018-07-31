@@ -5,12 +5,12 @@ class JobTitlesController < ApplicationController
     end 
 
     def show 
-        @job_title = job_title.most_popular
-        @job_title = JobTitle.find(id: params[:id])
+        @job_title = JobTitle.most_popular
+        @job_title = JobTitle.find(params[:id])
     end 
 
     def edit 
-        @job_title = JobTitle.find(id: params[:id])
+        @job_title = JobTitle.find(params[:id])
     end 
 
     def index 
