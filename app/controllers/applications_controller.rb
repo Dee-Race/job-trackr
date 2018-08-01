@@ -23,7 +23,7 @@ class ApplicationsController < ApplicationController
 
     def update 
         application = Application.find(params[:id])
-        if application.update(application_params)
+        if application.update_attributes(application_params)
             redirect_to application_path(application)
         end
     end 
@@ -44,7 +44,7 @@ class ApplicationsController < ApplicationController
     private 
 
     def application_params
-        params.require(:application).permit(:company, :job_location, :job_salary, :job_url, :description, :date_applied, :application_id, :job_title_id, job_title_attributes:[:title])
+        params.require(:application).permit(:company, :job_location, :job_salary, :job_url, :description, :date_applied, :application_id, :job_title_id, job_titles_attributes:[:title])
     end 
 
 

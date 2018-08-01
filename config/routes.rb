@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get "about" => "application#about", as: :about
  
+ 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   get '/login' => 'sessions#new'

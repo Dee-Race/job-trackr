@@ -3,6 +3,7 @@
 
 <% @applications.each do |application| %>
 
+
    <h3>Company</h3><li><%= application.company %></li><br>
    <h3>Title</h3><li><%= application.job_title.title %></li><br>
    <h3>Location</h3><li><%= application.job_location %></li><br>
@@ -14,6 +15,7 @@
    <p><%= link_to "Edit Application", edit_application_path(application) %></p>
    <p><%= link_to "Delete Application", application_path(application), method: 'delete' %></p>
    <p><%= link_to "My Applications & Job Titles", user_path(application.user) %></p>
+  
 
 <% end %>
 
