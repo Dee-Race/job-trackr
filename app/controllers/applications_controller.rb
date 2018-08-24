@@ -34,7 +34,11 @@ class ApplicationsController < ApplicationController
     end 
 
     def index 
-        @applications = current_user.applications 
+        @applications = Application.all      #current_user.applications 
+        respond_to do |f|
+            f.html
+            f.json {render json: @applications}
+        end 
     end 
 
     def show 
