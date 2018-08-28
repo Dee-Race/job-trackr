@@ -3,4 +3,5 @@ class ApplicationSerializer < ActiveModel::Serializer
 
   belongs_to :user 
   belongs_to :job_title
+  has_many :comments
 end
