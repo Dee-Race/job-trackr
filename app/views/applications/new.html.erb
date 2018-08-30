@@ -5,3 +5,32 @@
 <% @application.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
+
+<div id="applicationResult">
+  <h3 id="applicationCompany"></h2>
+  <p id="applicationJobTitle"></p>
+  <p id="applicationLocation"></p>
+  <p id="applicationJobSalary"></p>
+  <p id="applicationJobUrl"></p>
+  <p id="applicationDescription"></p>
+  <p id="applicationDateApplied"></p>
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $('form').submit(function(event) {
+    event.preventDefault();
+    var values = $(this).serialize();
+    var posting = $.post('/applications', values);
+    posting.done(function(data) {
+      var application = data;
+      $(".applicationCompany").text(application["company"]);
+      $(".applicationJobTitle").text(application["job_title.title"]);
+      $(".applicationLocation").text(application["job_location"]);
+      $(".applicationJobSalary").text(application["job_salary"]);
+      $(".applicationJobUrl").text(application["job_url"]);
+      $(".applicationDescription").text(application["description"]);
+      $(".applicationDateApplied").text(application["date_applied"]);
+    });
+  });
+});
+</script>

@@ -7,13 +7,15 @@ class ApplicationsController < ApplicationController
 
     def create  
         @application = Application.create(application_params)
-        render json: application, status: 201                # @application.user_id = current_user.id 
-    end                                                      # if @application.save
-                                                          # current_user.applications << @application 
+        @application.user_id = current_user.id 
+        if @application.save
+        #current_user.applications << @application  
+            redirect_to applications_path
+        else 
+            render :new 
+        end 
+    end 
     
-                                                            # redirect_to applications_path
-                                                        #  else 
-                                                            # render :new 
     def edit 
         @application = Application.find(params[:id])
     end 
