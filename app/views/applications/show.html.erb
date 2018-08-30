@@ -1,12 +1,31 @@
+<a href="#" class="js-next" data-id="<%=@application.id%>">Next Application</a>
+<h3 class="applicationCompany"><%= @application.company %></h1>
+<p class="applicationJobTitle"><%= @application.job_title.title %></p>
+<p class="applicationLocation"><%= @application.job_location %></p>
+<p class="applicationJobSalary"><%= @application.job_salary %></p>
+<p class="applicationJobUrl"><%= @application.job_url %></p>
+<p class="applicationDescription"><%= @application.description %></p>
+<p class="applicationDateApplied"><%= @application.date_applied %></p>
 
-
-<h3>Company</h3><li><%= @application.company %></li>
-<h3>Title</h3><li><%= @application.job_title.title %></li><br>
-<h3>Location</h3><li><%= @application.job_location %></li><br>
-<h3>Salary (if applicable)</h3><li><%= @application.job_salary %></li><br>
-<h3>Job Posting URL</h3><li><%= @application.job_url %></li><br>
-<h3>Description</h3><li><%= @application.description %></li><br>
-<h3>Date Applied</h3><li><%= @application.date_applied %></li><br>
+<script type="text/javascript" charset="utf-8">
+$(function () {
+    $(".js-next").on("click", function() {
+        var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+        $.get("/applications/" + nextId + ".json", function(data) {
+            var application = data;
+            $(".applicationCompany").text(application["company"]);
+            $(".applicationJobTitle").text(application["job_title.title"]);
+            $(".applicationLocation").text(application["job_location"]);
+            $(".applicationJobSalary").text(application["job_salary"]);
+            $(".applicationJobUrl").text(application["job_url"]);
+            $(".applicationDescription").text(application["description"]);
+            $(".applicationDateApplied").text(application["date_applied"]);
+            // re-set the id to current on the link
+            $(".js-next").attr("data-id", application["id"]);
+        })
+    })
+})
+</script>
 
 
 <p><%= link_to "Edit", edit_application_path(@application) %></p>
