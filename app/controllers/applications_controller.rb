@@ -6,17 +6,14 @@ class ApplicationsController < ApplicationController
     end 
 
     def create  
-        @application = Application.new(application_params)
-        @application.user_id = current_user.id 
-        if @application.save
-            #current_user.applications << @application 
+        @application = Application.create(application_params)
+        render json: application, status: 201                # @application.user_id = current_user.id 
+    end                                                      # if @application.save
+                                                          # current_user.applications << @application 
     
-            redirect_to applications_path
-        else 
-            render :new 
-        end 
-    end 
-
+                                                            # redirect_to applications_path
+                                                        #  else 
+                                                            # render :new 
     def edit 
         @application = Application.find(params[:id])
     end 
@@ -35,14 +32,19 @@ class ApplicationsController < ApplicationController
 
     def index 
         @applications = Application.all      #current_user.applications 
-        respond_to do |f|
-            f.html
-            f.json {render json: @applications}
+        respond_to do |format|
+            format.html
+            format.json {render json: @applications}
         end 
     end 
 
     def show 
-        @application = Application.find(params[:id]) 
+        @comment = @application.comments.build
+        @application = Application.find(params[:id])
+        respond_to do |format|
+            format.html {render :show}
+            format.json {render json: @application} 
+        end
     end 
 
     private 

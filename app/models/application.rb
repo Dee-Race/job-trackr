@@ -1,6 +1,7 @@
 class Application < ActiveRecord::Base
     belongs_to :user 
     belongs_to :job_title
+    has_many :comments
     validates :company, :job_location, :description, presence: true
 
    #accepts_nested_attributes_for :job_title, reject_if: :all_blank
@@ -13,5 +14,15 @@ class Application < ActiveRecord::Base
             end
         end 
     end
+
+    def next 
+        app =  Application.where("id > ?", id).first   # ActiveRecord Query grabbing an application by id
+
+        if app 
+            app
+        else 
+            Application.first 
+        end 
+    end 
 
 end

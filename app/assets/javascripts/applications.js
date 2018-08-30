@@ -11,6 +11,7 @@ $(document).ready(() => {
 const attachListeners = function() {
     $('.all_apps').on('click', function(event) {
         event.preventDefault()
+        history.pushState(null, null, "applications") // adds applications to url - /applications
         fetch(`/applications.json`)
             .then(resp => resp.json())
             .then(applications => {
@@ -37,7 +38,8 @@ function Application(application) {
 
 Application.prototype.formatIndex = function() {
     let applicationHtml = `
-        <h1>${this.company}</h1>
+        <a href='/applications/${this.id}"><h1>${this.company}</h1>
+        <button class="next-application">Next Application</button>
     `
     return applicationHtml 
 }

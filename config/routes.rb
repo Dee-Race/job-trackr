@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end 
 
   resources :applications 
+  resources :comments
 
   get "about" => "application#about", as: :about
  
