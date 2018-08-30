@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(version: 2018_07_24_204413) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "application_id"
+    t.index ["application_id"], name: "index_comments_on_application_id"
+  end
+
   create_table "job_titles", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false

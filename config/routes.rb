@@ -6,8 +6,9 @@ Rails.application.routes.draw do
        resources :job_titles
   end 
 
-  resources :applications 
-  resources :comments
+  resources :applications do 
+    resources :comments
+  end
 
   get "about" => "application#about", as: :about
  

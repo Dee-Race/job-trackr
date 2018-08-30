@@ -39,12 +39,16 @@ class ApplicationsController < ApplicationController
     end 
 
     def show 
-        @comment = @application.comments.build
         @application = Application.find(params[:id])
+        @comment = Comment.new(application: @application)
         respond_to do |format|
             format.html {render :show}
             format.json {render json: @application} 
         end
+    end 
+
+    def next 
+
     end 
 
     private 

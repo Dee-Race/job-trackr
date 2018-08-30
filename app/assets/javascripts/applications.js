@@ -8,6 +8,8 @@ $(document).ready(() => {
 
 // Intercept normal routing by the user - rewriting what happends when user clicks applications
 
+// A non refresh of loading all the applications 
+
 const attachListeners = function() {
     $('.all_apps').on('click', function(event) {
         event.preventDefault()

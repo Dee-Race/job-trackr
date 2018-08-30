@@ -5,8 +5,15 @@ class CommentsController < ApplicationController
     end 
 
     def create 
-        @comment = Comment.new 
-        
+        @application = Application.find(params[:application_id])
+        @comment = @application.comments.build(comment_params) 
+        redirect_to application_path(@application)
+    end 
+
+    private 
+
+    def comment_params
+        params.require(:comment).permit(:content)
     end 
 
 
