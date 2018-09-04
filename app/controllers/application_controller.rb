@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :current_user
-    before_action :require_logged_in, except: [:new, :create, :home]
+    #before_action :require_logged_in, except: [:new, :create, :home]
     helper_method :current_user, :logged_in?
 
     def home 

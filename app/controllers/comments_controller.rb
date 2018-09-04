@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     def create 
         @application = Application.find(params[:application_id])
         @comment = @application.comments.build(comment_params) 
+        @comment.save
         redirect_to application_path(@application)
     end 
 

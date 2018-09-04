@@ -8,11 +8,12 @@
 <p class="applicationDateApplied"><%= @application.date_applied %></p>
 
 <h3>Comments:</h3>
-<div id='comments'>
-    <%= render @application.comments %>
-    </div>
+    <% @application.comments.each do |c| %>
+        <%= c.content %>
+    <% end %>
+    
 <h3>Add a comment: </h1>
-    <%= render "comments/form" %>
+    <%= render 'comments/form' %>
 
 <script type="text/javascript" charset="utf-8">
 $(function () {
@@ -29,9 +30,9 @@ $(function () {
             $(".applicationDateApplied").text(application["date_applied"]);
             // re-set the id to current on the link
             $(".js-next").attr("data-id", application["id"]);
-        })
-    })
-})
+        });
+    });
+});
 </script>
 
 
