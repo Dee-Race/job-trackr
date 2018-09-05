@@ -71,4 +71,21 @@ Application.prototype.formatShow = function() {
 }
 
 
+$(function () {
+    $(".js-next").on("click", function() {
+        var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+        $.get("/applications/" + nextId + ".json", function(data) {
+            var application = data;
+            $(".applicationCompany").text(application["company"]);
+            $(".applicationJobTitle").text(application["job_title.title"]);
+            $(".applicationLocation").text(application["job_location"]);
+            $(".applicationJobSalary").text(application["job_salary"]);
+            $(".applicationJobUrl").text(application["job_url"]);
+            $(".applicationDescription").text(application["description"]);
+            $(".applicationDateApplied").text(application["date_applied"]);
+            // re-set the id to current on the link
+            $(".js-next").attr("data-id", application["id"]);
+        });
+    });
+});
 

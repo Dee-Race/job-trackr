@@ -1,42 +1,24 @@
-<a href="#" class="js-next" data-id="<%=@application.id%>">Next Application</a>
+<p><a href="#" class="js-next" data-id="<%=@application.id%>">Next Application</a></p>
 <h3 class="applicationCompany"><%= @application.company %></h1>
-<p class="applicationJobTitle"><%= @application.job_title.title %></p>
-<p class="applicationLocation"><%= @application.job_location %></p>
-<p class="applicationJobSalary"><%= @application.job_salary %></p>
-<p class="applicationJobUrl"><%= @application.job_url %></p>
-<p class="applicationDescription"><%= @application.description %></p>
-<p class="applicationDateApplied"><%= @application.date_applied %></p>
+<p class="applicationJobTitle">Position: <%= @application.job_title.title %></p>
+<p class="applicationLocation">Location: <%= @application.job_location %></p>
+<p class="applicationJobSalary">Job Salary: <%= @application.job_salary %></p>
+<p class="applicationJobUrl">Job URL: <%= @application.job_url %></p>
+<p class="applicationDescription">Description: <%= @application.description %></p>
+<p class="applicationDateApplied">Date Applied: <%= @application.date_applied %></p>
 
-<p><%= link_to "Load Comments", application_comments_path(@application), :class => "load_comments" %>
+<ol>
+    <% @application.comments.each do |comment| %>
+    <li><%= comment.content %></li>
+    <% end %>
+</ol>
 
-<div class="comments">
-
-</div>
 
 
     
-<h3>Add a comment: </h1>
+<p>Add a comment: </p>
     <%= render 'comments/form' %>
 
-<script type="text/javascript" charset="utf-8">
-$(function () {
-    $(".js-next").on("click", function() {
-        var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-        $.get("/applications/" + nextId + ".json", function(data) {
-            var application = data;
-            $(".applicationCompany").text(application["company"]);
-            $(".applicationJobTitle").text(application["job_title.title"]);
-            $(".applicationLocation").text(application["job_location"]);
-            $(".applicationJobSalary").text(application["job_salary"]);
-            $(".applicationJobUrl").text(application["job_url"]);
-            $(".applicationDescription").text(application["description"]);
-            $(".applicationDateApplied").text(application["date_applied"]);
-            // re-set the id to current on the link
-            $(".js-next").attr("data-id", application["id"]);
-        });
-    });
-});
-</script>
 
 
 <p><%= link_to "Edit", edit_application_path(@application) %></p>
