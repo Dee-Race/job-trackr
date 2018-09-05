@@ -7,10 +7,13 @@
 <p class="applicationDescription"><%= @application.description %></p>
 <p class="applicationDateApplied"><%= @application.date_applied %></p>
 
-<h3>Comments:</h3>
-    <% @application.comments.each do |c| %>
-        <%= c.content %>
-    <% end %>
+<p><%= link_to "Load Comments", application_comments_path(@application), :class => "load_comments" %>
+
+<div class="comments">
+
+</div>
+
+
     
 <h3>Add a comment: </h1>
     <%= render 'comments/form' %>

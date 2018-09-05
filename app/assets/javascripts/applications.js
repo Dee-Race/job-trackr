@@ -1,9 +1,9 @@
-// Send a recieve info from the backend without a page reload
+// Send and recieve info from the backend without a page reload
 
 
 // .ready() method waits until the browser finishes rendering the HTML doc before triggering callback function
 $(document).ready(() => {
-    attachListeners()
+    attachListeners();
 });
 
 // Intercept normal routing by the user - rewriting what happends when user clicks applications
@@ -69,3 +69,6 @@ Application.prototype.formatShow = function() {
     `
     return applicationHtml
 }
+
+
+
