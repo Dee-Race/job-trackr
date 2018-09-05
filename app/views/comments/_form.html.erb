@@ -1,4 +1,4 @@
-<%= form_for([@application, @application.comments.build]) do |f| %>
+<%= form_for([@application, @comment]) do |f| %>  <!-- Using brackets inside parenthesis to access nested resource comments-->
 
     <p><%= f.text_area :content %></p><br>
     <p><%= f.submit %></p>

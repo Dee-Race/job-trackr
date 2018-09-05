@@ -1,14 +1,17 @@
-$(document).ready(() => {
-    loadComments();
-});
+// Submitting Comments via AJAX
 
-function loadComments() {
-    $("a.load_comments").on("click", function(event) {
-       // Requesting HTML
-       $.get(this.href).success(function(response) {
-           $("div.comments").html(response)
-       });
-
+$(function() {
+    $("#new_comment").on("submit", function(event) {
         event.preventDefault();
-    });
-};
+        $.ajax({
+            type: "POST",
+            url: this.action,
+            data: $(this).serialize(),
+            success: function(response) {
+                $("#comment_content").val("");
+                let $ol = $("div.comments ol")
+                $ol.append(response);
+            }
+        })
+    })
+})

@@ -3,19 +3,19 @@
 <p class="applicationJobTitle">Position: <%= @application.job_title.title %></p>
 <p class="applicationLocation">Location: <%= @application.job_location %></p>
 <p class="applicationJobSalary">Job Salary: <%= @application.job_salary %></p>
-<p class="applicationJobUrl">Job URL: <%= @application.job_url %></p>
+<p><a href="<%=@application.job_url %>" class="applicationJobUrl">Job URL</a></p>
 <p class="applicationDescription">Description: <%= @application.description %></p>
 <p class="applicationDateApplied">Date Applied: <%= @application.date_applied %></p>
 
-<ol>
-    <% @application.comments.each do |comment| %>
-    <li><%= comment.content %></li>
-    <% end %>
-</ol>
+
+<p>Comments: </p>
+
+<div class="comments">
+    <%= render 'comments/comments' %>
+</div>
 
 
 
-    
 <p>Add a comment: </p>
     <%= render 'comments/form' %>
 
