@@ -1,9 +1,6 @@
 class CommentsController < ApplicationController 
     before_action :set_application
 
-    def new 
-        @comment = Comment.new 
-    end 
 
     def index 
         @comments = @application.comments
@@ -15,7 +12,7 @@ class CommentsController < ApplicationController
 
     def create 
         @comment = @application.comments.build(comment_params) 
-        @comment.save
+        @comment.save 
         redirect_to application_path(@application)
     end 
 

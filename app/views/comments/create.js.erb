@@ -1,1 +1,3 @@
-$('#comments').html("<%=j render @application.comments%>");
+$("#comment_content").val("");
+var $ol = $("div.commentsList ol")
+$ol.append("<%= j render 'comments/comments', :comment => @comment %>");

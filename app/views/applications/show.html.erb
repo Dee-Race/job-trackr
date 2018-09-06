@@ -9,19 +9,18 @@
 
 
 <p>Comments: </p>
-<div class="commentsList">
+<div class="comments">
     <ol>
         <% @application.comments.each do |comment| %>
         <li><%= comment.content %></li>
         <% end %>
     </ol>  
-    </div> 
-
-
+</div> 
 
 
 <p>Add a comment: </p>
     <%= render 'comments/form' %>
+
 
 
 
