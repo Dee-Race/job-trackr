@@ -12,7 +12,7 @@ $(document).ready(() => {
 
 const attachListeners = function() {
     $('.all_apps').on('click', function(event) {
-        event.preventDefault()
+        event.preventDefault();
         history.pushState(null, null, "applications") // adds applications to url - /applications
         fetch(`/applications.json`)                  // making a call to applications.json api endpoint
             .then(resp => resp.json())                 // returns a promise, calling .json on response
@@ -36,17 +36,13 @@ const attachListeners = function() {
                 $('#app-container').append(applicationHtml)
             })
     })
-
-    $(document).on('click', 'next-app', function() {
-        let id = $(this).attr('data-id')
-        fetch(`applications/${id}/next`)
-    })
 }
 
 function Application(application) {   // javascript model object, constructor function 
     this.id = application.id
     this.company = application.company
     this.user = application.user 
+    this.job_title = application.job_title.title
     this.job_location = application.job_location
     this.description = application.description
     this.job_salary = application.job_salary 
@@ -63,9 +59,12 @@ Application.prototype.formatIndex = function() {     //
 }
 
 Application.prototype.formatShow = function() {
-    let applicationHtml = `
-        <p>${this.description}</p>
-        <button class="next-app">Next Application</button>
+    let applicationHtml = `<ol>
+        <li><p>${this.job_title}</p></li>
+        <li><p>${this.description}</p></li>
+        <li><p>${this.job_location}</p></li>
+        <li><p>${this.job_url}</p></li>
+        </ol>
     `
     return applicationHtml
 }

@@ -1,8 +1,8 @@
 // Submitting Comments via AJAX
 
 $(function() {
-    $(".new_comment").on("submit", function(event) {
-        event.preventDefault();
+    $("#new_comment").on("submit", function(event) {
+        
         const data = $(this).serialize();
         $.ajax({
             type: "POST",
@@ -15,5 +15,6 @@ $(function() {
                 $ol.append(response);
             }
         })
+        event.preventDefault();
     })
 })
