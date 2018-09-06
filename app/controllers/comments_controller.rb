@@ -7,6 +7,10 @@ class CommentsController < ApplicationController
 
     def index 
         @comments = @application.comments
+        respond_to do |format|
+            format.html { render :index, :layout => false }
+            format.json { render json: @comments, :layout => false }
+        end 
     end 
 
     def create 

@@ -49,10 +49,6 @@ class ApplicationsController < ApplicationController
         end
     end 
 
-    def next 
-
-    end 
-
     private 
 
     def application_params

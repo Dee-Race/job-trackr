@@ -9,10 +9,14 @@
 
 
 <p>Comments: </p>
+<div class="commentsList">
+    <ol>
+        <% @application.comments.each do |comment| %>
+        <li><%= comment.content %></li>
+        <% end %>
+    </ol>  
+    </div> 
 
-<div class="comments">
-    <%= render 'comments/comments' %>
-</div>
 
 
 

@@ -1,15 +1,17 @@
 // Submitting Comments via AJAX
 
 $(function() {
-    $("#new_comment").on("submit", function(event) {
+    $(".new_comment").on("submit", function(event) {
         event.preventDefault();
+        const data = $(this).serialize();
         $.ajax({
             type: "POST",
             url: this.action,
-            data: $(this).serialize(),
+            data: data,
+            dataType: "json",
             success: function(response) {
                 $("#comment_content").val("");
-                let $ol = $("div.comments ol")
+                let $ol = $("div.commentsList ol")
                 $ol.append(response);
             }
         })
