@@ -6,8 +6,7 @@ $(function() {
         $.ajax({
             type: "POST",
             url: this.action,
-            data: data,
-           // dataType: "json",
+            data: data,                         // form data
             success: function(response) {
                 $("#comment_content").val("");  // empty out text area 
                 let $ol = $("div.comments ol")
