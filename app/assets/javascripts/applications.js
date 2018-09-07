@@ -82,7 +82,7 @@ $(function () {
             $(".applicationJobUrl").text(application["job_url"]);
             $(".applicationDescription").text(application["description"]);
             $(".applicationDateApplied").text(application["date_applied"]);
-            // re-set the id to current on the link
+             //re-set the id to current on the link
             $(".js-next").attr("data-id", application["id"]);
         });
     });

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get "about" => "application#about", as: :about
 
-  get "applications/:id/next", to: "applications#next"
+  #get "applications/:id/next", to: "applications#next"
  
  
   get '/signup' => 'users#new'

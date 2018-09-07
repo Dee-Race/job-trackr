@@ -10,18 +10,13 @@
 
 <p>Comments: </p>
 <div class="comments">
-    <ol>
-        <% @application.comments.each do |comment| %>
-        <li><%= comment.content %></li>
-        <% end %>
-    </ol>  
-</div> 
+    <%= render 'comments/comments'%>
+</div>
 
 
 <p>Add a comment: </p>
-    <%= form_for([@application, @comment]) do |f| %>  <!-- Using brackets inside parenthesis to access nested resource comments-->
-
-    <p><%= f.text_area :content %></p><br>
+    <%= form_for(@comment, :url => application_comments_path(@application)) do |f| %>  
+    <p><%= f.text_area :content %></p>
     <p><%= f.submit %></p>
 
     <% end %>

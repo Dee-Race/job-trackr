@@ -2,27 +2,19 @@
 
 $(function() {
     $("#new_comment").on("submit", function(event) {
-        
         const data = $(this).serialize();  // serialize method creates a text string in standard URL encoded notation
         $.ajax({
             type: "POST",
             url: this.action,
             data: data,
-            dataType: "json",
+           // dataType: "json",
             success: function(response) {
-                debugger
-                $("#comment_content").val("");
-                let newComment = new Comment(response.id, response.application_id, response.content);
+                $("#comment_content").val("");  // empty out text area 
                 let $ol = $("div.comments ol")
-                $ol.append(newComment);
+                $ol.append(response);
             }
         })
         event.preventDefault();
     })
 })
 
-function Comment(id, applicationId, content) {
-    this.id = id;
-    this.application_id = applicationId;
-    this.content = content;
-}

@@ -1,5 +1,6 @@
 class ApplicationsController < ApplicationController
 
+
     def new 
         @application = Application.new
         @application.build_job_title
@@ -35,7 +36,7 @@ class ApplicationsController < ApplicationController
     def index 
         @applications = Application.all      #current_user.applications 
         respond_to do |format|
-            format.html
+            format.html 
             format.json {render json: @applications}
         end 
     end 
@@ -44,12 +45,13 @@ class ApplicationsController < ApplicationController
         @application = Application.find(params[:id])
         @comment = @application.comments.build
         respond_to do |format|
-            format.html
+            format.html {render :show}
             format.json {render json: @application}
         end
     end 
 
     private 
+
 
     def application_params
         params.require(:application).permit(:company, :job_location, :job_salary, :job_url, :description, :date_applied, :application_id, :job_title_id, job_titles_attributes:[:title])
