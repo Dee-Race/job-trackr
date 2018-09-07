@@ -19,7 +19,12 @@
 
 
 <p>Add a comment: </p>
-    <%= render 'comments/form' %>
+    <%= form_for([@application, @comment]) do |f| %>  <!-- Using brackets inside parenthesis to access nested resource comments-->
+
+    <p><%= f.text_area :content %></p><br>
+    <p><%= f.submit %></p>
+
+    <% end %>
 
 
 

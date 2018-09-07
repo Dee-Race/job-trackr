@@ -15,14 +15,5 @@ class Application < ActiveRecord::Base
         end 
     end
 
-    def next 
-        app =  Application.where("id > ?", id).first   # ActiveRecord Query grabbing an application by id
-
-        if app 
-            app
-        else 
-            Application.first 
-        end 
-    end 
 
 end

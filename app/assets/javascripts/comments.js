@@ -10,6 +10,7 @@ $(function() {
             data: data,
             dataType: "json",
             success: function(response) {
+                debugger
                 $("#comment_content").val("");
                 let newComment = new Comment(response.id, response.application_id, response.content);
                 let $ol = $("div.comments ol")
