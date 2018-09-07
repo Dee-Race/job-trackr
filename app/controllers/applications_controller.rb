@@ -50,6 +50,9 @@ class ApplicationsController < ApplicationController
         end
     end 
 
+    # Rails is using ApplicationSerializer when we call render json: application
+    # ActiveModelSerializers don't require us to build out JSON string by hand
+
     private 
 
 

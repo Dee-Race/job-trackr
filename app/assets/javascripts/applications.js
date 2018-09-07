@@ -14,8 +14,8 @@ const attachListeners = function() {
     $('.all_apps').on('click', function(event) {
         event.preventDefault();
         history.pushState(null, null, "applications") // adds applications to url - /applications
-        fetch(`/applications.json`)                  // making a call to applications.json api endpoint
-            .then(resp => resp.json())                 // returns a promise, calling .json on response
+        fetch(`/applications.json`)                  // making a call to applications.json api endpoint, use fetch() for fetching resources (URLs)
+            .then(resp => resp.json())                 // returns a promise, calling .json on response, giving the body of the response parsed as JSON
             .then(applications => {                   // getting back the data from the previous then response
                 $('#app-container').html('')          // clearing app container html
                 applications.forEach(application => {     // iterating through each application
@@ -51,7 +51,9 @@ function Application(application) {   // javascript model object, constructor fu
     this.comments = application.comments
 }
 
-Application.prototype.formatIndex = function() {     //
+// Each javascript object has refernce to attributes declared on it's constructors prototype
+
+Application.prototype.formatIndex = function() {     
     let applicationHtml = `
         <a href="/applications/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.company}</h1></a>
     `
