@@ -43,7 +43,7 @@ class ApplicationsController < ApplicationController
 
     def show 
         @application = Application.find(params[:id])
-        @comment = @application.comments.build
+        @comment = Comment.new
         respond_to do |format|
             format.html {render :show}
             format.json {render json: @application}

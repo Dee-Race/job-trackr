@@ -86,7 +86,7 @@ $(function () {
             $(".applicationDateApplied").text(application["date_applied"]);
              //re-set the id to current on the link
             $(".js-next").attr("data-id", application["id"]);
+            $("#new_comment").attr("action", `/applications/${application["id"]}/comments`);
         });
     });
 });
-
