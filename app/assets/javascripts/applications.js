@@ -90,3 +90,7 @@ $(function () {
         });
     });
 });
+
+$("#comments").map(function() {
+    return $(this).val();
+})
