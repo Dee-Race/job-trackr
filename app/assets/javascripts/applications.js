@@ -77,6 +77,9 @@ $(function () {
         var nextId = parseInt($(".js-next").attr("data-id")) + 1;
         $.get("/applications/" + nextId + ".json", function(data) {
             var application = data;
+            application.comments.map(comment => {
+                $("div.comments").append(`<ol><li>${comment.content}</li></ol>`)
+            })
             $(".applicationCompany").text(application["company"]);
             $(".applicationJobTitle").text(application["job_title.title"]);
             $(".applicationLocation").text(application["job_location"]);
@@ -90,7 +93,3 @@ $(function () {
         });
     });
 });
-
-$("#comments").map(function() {
-    return $(this).val();
-})
