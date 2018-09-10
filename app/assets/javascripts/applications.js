@@ -77,8 +77,9 @@ $(function () {
         var nextId = parseInt($(".js-next").attr("data-id")) + 1;
         $.get("/applications/" + nextId + ".json", function(data) {
             var application = data;
+            $("div.comments ol").empty()
             application.comments.map(comment => {
-                $("div.comments").append(`<ol><li>${comment.content}</li></ol>`)
+                $("div.comments ol").append(`<li>${comment.content}</li>`)
             })
             $(".applicationCompany").text(application["company"]);
             $(".applicationJobTitle").text(application["job_title.title"]);
