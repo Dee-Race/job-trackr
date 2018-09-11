@@ -78,7 +78,7 @@ $(function () {
         $.get("/applications/" + nextId + ".json", function(data) {
             var application = data;
             $("div.comments ol").empty()
-            application.comments.map(comment => {
+            application.comments.forEach(comment => {
                 $("div.comments ol").append(`<li>${comment.content}</li>`)
             })
             $(".applicationCompany").text(application["company"]);
